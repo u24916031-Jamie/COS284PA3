@@ -8,6 +8,9 @@ typedef struct {
 } Book;
 
 extern int64_t total_pages(const Book* books, int64_t n);
+extern double average_rating(const Book* books, int64_t n);
+extern int64_t count_above(const Book* books, int64_t n, double threshold);
+extern Book* best_book(const Book* books, int64_t n);
 
 int main(void) {
     Book library[3] = {
@@ -18,6 +21,13 @@ int main(void) {
 
     int64_t total = total_pages(library, 3);
     printf("Total Pages: %ld\n", total); // Output: 1012
+	double avg = average_rating(library, 3);
+	printf("Average Rating: %lf\n", avg);
+	int64_t count = count_above(library, 3, 3.0);
+	printf("Above  Rating: %ld\n", count);
+	Book* best = best_book(library, 3);
+
+	printf("Best  ID: %d\n", best->id);
 
     return 0;
 }

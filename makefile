@@ -28,6 +28,7 @@ all: $(TARGET)
 # Rule to link object files into the final executable
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $(OBJS)
+	
 
 # Rule to compile C source files to object files
 %.o: %.c
